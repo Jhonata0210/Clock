@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Clock</title>
+</head>
+<body>
+    <div class="container">
+        <div class="clock">
+
+            <div class="circle" id = "sc" style="--clr:#011D47;"><em></em></div>
+            <div class=" circle circle2" id = "min" style="--clr:#00568E;"><em></em></div>
+            <div class=" circle circle3" id = "hr" style="--clr: #AAC3D5;"><em></em></div>
+
+            <span style="--i:1;"><strong>1</strong></span>
+            <span style="--i:2;"><strong>2</strong></span>
+            <span style="--i:3;"><strong>3</strong></span>
+            <span style="--i:4;"><strong>4</strong></span>
+            <span style="--i:5;"><strong>5</strong></span>
+            <span style="--i:6;"><strong>6</strong></span>
+            <span style="--i:7;"><strong>7</strong></span>
+            <span style="--i:8;"><strong>8</strong></span>
+            <span style="--i:9;"><strong>9</strong></span>
+            <span style="--i:10;"><strong>10</strong></span>
+            <span style="--i:11;"><strong>11</strong></span>
+            <span style="--i:12"><strong>12</strong></span>
+        </div>
+        <div id="time">
+            <div id="hours">00</div>
+            <div id="minutes">00</div>
+            <div id="seconds">00</div>
+            <div id="ampm">AM</div>
+        </div>
+    </div>
+    
+
+    <script>
+        let hr = document.querySelector('#hr');
+        let min = document.querySelector('#min');
+        let sc = document.querySelector('#sc');
+
+        setInterval (() => {
+        let day = new Date();   
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * 6;
+        let ss = day.getSeconds() * 6;
+
+        hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+        min.style.transform = `rotateZ(${mm}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
+
+        // Part II
+
+        let hours = document.getElementById('hours');
+        let minutes = document.getElementById('minutes');
+        let seconds = document.getElementById('seconds');
+        let ampm = document.getElementById('ampm');
+
+        let h = new Date ().getHours();
+        let m = new Date ().getMinutes();
+        let s = new Date ().getSeconds();
+
+        hours.innerHTML = h;
+        minutes.innerHTML = m;
+        seconds.innerHTML = s;
+    })
+    </script>
+</body>
+</html>
